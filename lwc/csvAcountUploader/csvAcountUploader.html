@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="Carga de Accounts desde CSV" icon-name="custom:custom19">
+        <div class="slds-m-around_medium">
+            <!-- Botón para mostrar la pantalla de carga -->
+            <lightning-button label="Subir Archivo CSV" onclick={handleButtonClick} class="slds-m-around_medium"></lightning-button>
+        </div>
+
+        <!-- Pantalla de carga de archivo CSV -->
+        <template if:true={showFileUpload}>
+            <div class="slds-m-around_medium">
+                <lightning-input type="file" label="Seleccionar Archivo CSV" onchange={handleFileChange} accept=".csv"></lightning-input>
+                <lightning-button label="Cargar Archivo CSV" onclick={handleFileUpload} class="slds-m-top_medium"></lightning-button>
+                <lightning-spinner if:true={showSpinner} alternative-text="Procesando el archivo..."></lightning-spinner>
+                <p class="slds-m-top_medium">{uploadMessage}</p>
+            </div>
+        </template>
+    </lightning-card>
+</template>
